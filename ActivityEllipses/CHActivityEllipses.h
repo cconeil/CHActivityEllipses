@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "Constants.h"
+
+#define kWidth [UIScreen mainScreen].bounds.size.width
+#define kHeight [UIScreen mainScreen].bounds.size.height
 
 @interface CHActivityEllipses : UIView {
     float width, height, padding, diameter, radius;

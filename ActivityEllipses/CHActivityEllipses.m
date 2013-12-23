@@ -55,7 +55,6 @@
 
 
 -(void)startActivity {
-    [self.superview setUserInteractionEnabled:NO];
     [self appear];
     [self animate];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.5f
@@ -69,7 +68,6 @@
     if (timer != nil) {
         [timer invalidate];
     }
-    [self.superview setUserInteractionEnabled:YES];
     [self dissapear];
 }
 

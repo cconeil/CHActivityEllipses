@@ -20,6 +20,7 @@
 		9D5925241867D70200FA1E8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D5925221867D70200FA1E8B /* InfoPlist.strings */; };
 		9D5925261867D70200FA1E8B /* ActivityEllipsesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5925251867D70200FA1E8B /* ActivityEllipsesTests.m */; };
 		9D5925311867D73000FA1E8B /* CHActivityEllipses.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5925301867D73000FA1E8B /* CHActivityEllipses.m */; };
+		9D5925341867D7BF00FA1E8B /* CHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5925331867D7BF00FA1E8B /* CHMasterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		9D5925251867D70200FA1E8B /* ActivityEllipsesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityEllipsesTests.m; sourceTree = "<group>"; };
 		9D59252F1867D73000FA1E8B /* CHActivityEllipses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHActivityEllipses.h; sourceTree = "<group>"; };
 		9D5925301867D73000FA1E8B /* CHActivityEllipses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHActivityEllipses.m; sourceTree = "<group>"; };
+		9D5925321867D7BF00FA1E8B /* CHMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMasterViewController.h; sourceTree = "<group>"; };
+		9D5925331867D7BF00FA1E8B /* CHMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMasterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				9D5925301867D73000FA1E8B /* CHActivityEllipses.m */,
 				9D59250F1867D70200FA1E8B /* CHAppDelegate.h */,
 				9D5925101867D70200FA1E8B /* CHAppDelegate.m */,
+				9D5925321867D7BF00FA1E8B /* CHMasterViewController.h */,
+				9D5925331867D7BF00FA1E8B /* CHMasterViewController.m */,
 				9D5925121867D70200FA1E8B /* Images.xcassets */,
 				9D5925071867D70200FA1E8B /* Supporting Files */,
 			);
@@ -246,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D59250D1867D70200FA1E8B /* main.m in Sources */,
+				9D5925341867D7BF00FA1E8B /* CHMasterViewController.m in Sources */,
 				9D5925311867D73000FA1E8B /* CHActivityEllipses.m in Sources */,
 				9D5925111867D70200FA1E8B /* CHAppDelegate.m in Sources */,
 			);
@@ -448,6 +454,7 @@
 				9D59252B1867D70200FA1E8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D59252C1867D70200FA1E8B /* Build configuration list for PBXNativeTarget "ActivityEllipsesTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +463,7 @@
 				9D59252E1867D70200FA1E8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

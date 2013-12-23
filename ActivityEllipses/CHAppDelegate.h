@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHMasterViewController.h"
 
 @interface CHAppDelegate : UIResponder <UIApplicationDelegate>
 
