@@ -9,12 +9,13 @@
 #import "CHActivityEllipses.h"
 
 @implementation CHActivityEllipses
-
+@synthesize bgColor, dotColor, interval;
 
 -(id)initWithSize:(CGFloat)size backgroundColor:(UIColor *)bgc dotColor:(UIColor *)dc {
     width = size, height = size;
     self = [super initWithFrame:CGRectMake((kWidth - width)/2, (kHeight - height)/2, width, height)];
     if (self) {
+        [self setDefaults];
         self.bgColor = bgc;
         self.dotColor = dc;
 
@@ -53,35 +54,48 @@
     return self;
 }
 
-
--(void)startActivity {
-    [self appear];
-    [self animate];
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.5f
-                                             target:self
-                                           selector:@selector(animate)
-                                           userInfo:nil
-                                        repeats:YES];
+// sets the defaults for all of the properties.
+-(void)setDefaults {
+    self.backgroundColor = [UIColor blackColor];
+    self.dotColor = [UIColor whiteColor];
+    self.interval = .75f;
+    animating = NO;
 }
 
--(void)stopActivity {
-    if (timer != nil) {
-        [timer invalidate];
+
+-(void)startActivity {
+    if (!animating) {
+        [self appear];
+        animating = YES;
+        [self animate];
     }
+}
+
+
+-(void)stopActivity {
+    animating = NO;
     [self dissapear];
 }
 
 -(void)animate {
-    // add the new dots
-    float interval = .5;
-    [self fadeIn:left startsIn:0 lastsFor:interval/2];
-    [self fadeIn:center startsIn:interval lastsFor:interval/2];
-    [self fadeIn:right startsIn:(interval * 2) lastsFor:interval/2];
+    self.interval = .75;
+    [self fadeIn:left startsIn:interval/4 lastsFor:interval/2 addDelegate:NO];
+    [self fadeIn:center startsIn:interval lastsFor:interval/2 addDelegate:NO];
+    [self fadeIn:right startsIn:(interval * 2) lastsFor:interval/2 addDelegate:YES];
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if (animating) {
+        [self animate];
+    }
 }
 
 // adds the animation that makes a dot fade in.
--(void)fadeIn:(CALayer *)dot startsIn:(float)delay lastsFor:(float)duration  {
-
+-(CABasicAnimation *)fadeIn:(CALayer *)dot startsIn:(float)delay lastsFor:(float)duration addDelegate:(BOOL)del  {
+    
+    // make sure dot has not animations
+    [dot removeAllAnimations];
+    
     // fade a dot in
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     animation.beginTime = CACurrentMediaTime() + delay;
@@ -91,14 +105,19 @@
     animation.removedOnCompletion = YES;
     animation.fillMode = kCAFillModeBoth;
     animation.additive = NO;
+    if (del) animation.delegate = self;
     [dot addAnimation:animation forKey:@"opacityIN"];
+    return animation;
 }
 
 // hides all of the dots
 -(void)dissapear {
     left.opacity = 0;
+    [left removeAllAnimations];
     center.opacity = 0;
+    [center removeAllAnimations];
     right.opacity = 0;
+    [right removeAllAnimations];
 }
 
 // shows all of the dots

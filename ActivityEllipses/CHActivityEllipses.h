@@ -16,6 +16,7 @@
     float width, height, padding, diameter, radius;
     CALayer *left, *center, *right;
     NSTimer *timer;
+    BOOL animating;
 }
 
 -(void)startActivity;
@@ -24,5 +25,6 @@
 
 @property (nonatomic, strong) UIColor *bgColor;
 @property (nonatomic, strong) UIColor *dotColor;
+@property float interval;
 
 @end
