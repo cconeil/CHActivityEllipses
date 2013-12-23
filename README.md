@@ -2,7 +2,8 @@ CHActivityEllipses
 ==================
 
 An activity indicator that is an animating ellipses with customizable size and colors.
-<img width="25" height="25" src="ellipses.gif"/>
+
+<img width="100" height="100" src="ellipses.gif"/>
 
 ### Initialization
     -(id)initWithSize:(CGFloat)size backgroundColor:(UIColor *)bgc dotColor:(UIColor *)dc;
